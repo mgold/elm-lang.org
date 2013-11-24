@@ -381,6 +381,9 @@ origin = { x=0, y=0 }
 
 ### JavaScript FFI
 
+The foreign function interface provides [HTML and JS
+integration](https://github.com/evancz/elm-html-and-js).
+
 ```haskell
 foreign import jsevent "eventName"
     (expr)
@@ -406,12 +409,19 @@ take some imperative action:
 * `"log"` which logs messages in the developer console.
 * `"redirect"` which redirects to a different page, ignoring empty strings.
 
+```haskell
+logged = constant <| JavaScript.fromString "This gets logged"
+foreign export jsevent "log"
+    logged : Signal JavaScript.JSString
+```
+
 ### Things *not* in Elm
 
 Elm currently does not support:
 
 - operator sections such as `(+1)`
-- guarded definitions or guarded cases. Use the multi-way if for this.
+- guarded definitions or guarded cases. Use the multi-way if and case statements
+  for this.
 - `where` clauses
 - any sort of `do` or `proc` notation
 
