@@ -399,7 +399,7 @@ foreign export jsevent "eventName"
 
 The rules are the same for `export` except you do not need an initial value.
 
-Elm has four built-in event handlers that take a `JSString` and automatically
+Elm has three built-in event handlers that take a `JSString` and automatically
 take some imperative action:
 
 * `"title"` which sets the page title, ignoring empty strings.
